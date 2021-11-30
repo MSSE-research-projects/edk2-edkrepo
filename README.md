@@ -5,40 +5,40 @@ This fork contains two extra branches: before-refactoring and after-refactoring.
 Refactoring operations:
 
 1. Extract Function
-..* Source element: f2f_cherry_pick_command.py:99-106
-..* Target element: f2f_cherry_pick_command.py:118-126
-..* Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
+  * Source element: f2f_cherry_pick_command.py:99-106
+  * Target element: f2f_cherry_pick_command.py:118-126
+  * Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
 
 2. Extract Function
-..* Source element: f2f_cherry_pick_command.py:107-120
-..* Target element: f2f_cherry_pick_command.py:128-151
-..* Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
+  * Source element: f2f_cherry_pick_command.py:107-120
+  * Target element: f2f_cherry_pick_command.py:128-151
+  * Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
 
 3. Extract Function
-..* Source element: f2f_cherry_pick_command.py:121-133
-..* Target element: f2f_cherry_pick_command.py:153-164
-..* Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
+  * Source element: f2f_cherry_pick_command.py:121-133
+  * Target element: f2f_cherry_pick_command.py:153-164
+  * Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
 
 4. Extract Function
-..* Source element: f2f_cherry_pick_command.py:134-176
-..* Target element: f2f_cherry_pick_command.py:166-210
-..* Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
+  * Source element: f2f_cherry_pick_command.py:134-176
+  * Target element: f2f_cherry_pick_command.py:166-210
+  * Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
 
 5. Extract Function
-..* Source element: f2f_cherry_pick_command.py:177-314
-..* Target element: f2f_cherry_pick_command.py:212-360
-..* Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
+  * Source element: f2f_cherry_pick_command.py:177-314
+  * Target element: f2f_cherry_pick_command.py:212-360
+  * Rationale: Previously, the main function in the script was extremely long and monolithic. Multiple Extract Method operations were performed to logically modularize sections of the script to improve readability and maintainability.
 
 6. Consolidate Redundant Conditional Statements
-..* Source element: f2f_cherry_pick_command.py:107-175
-..* Target element: f2f_cherry_pick_command.py:102-112, 128-210
-..* Rationale: There were instances where the same conditional check was being performed multiple times consecutively, with no changes to any local variables in between. It was logical to combine them so that we are not making redundant checks. This went hand-in-hand with the Extract Function operations above, such that I could perform one check at the top, and call the proper extracted methods accordingly.
+  * Source element: f2f_cherry_pick_command.py:107-175
+  * Target element: f2f_cherry_pick_command.py:102-112, 128-210
+  * Rationale: There were instances where the same conditional check was being performed multiple times consecutively, with no changes to any local variables in between. It was logical to combine them so that we are not making redundant checks. This went hand-in-hand with the Extract Function operations above, such that I could perform one check at the top, and call the proper extracted methods accordingly.
 
 7. Introduce Parameter Object 
-..* Source element: --
-..* Target element: RepoInfo, CommitInfo, CherryPickInfo
-..* Smell: Long Parameter List
-..* During the above Extract Function operations, there were many local variables in the original method that made refactoring quite tough. The new functions had signatures with many parameters, and returned many variables as well. This was far too complex, and severely decreased the readability of the script. As a result, we performed the Introduce Parameter Object and divided the local variables into 3 distinct Python namedtuples. This helped clean up all of the function signatures and return values and make the code much more readable.
+  * Source element: --
+  * Target element: RepoInfo, CommitInfo, CherryPickInfo
+  * Smell: Long Parameter List
+  * During the above Extract Function operations, there were many local variables in the original method that made refactoring quite tough. The new functions had signatures with many parameters, and returned many variables as well. This was far too complex, and severely decreased the readability of the script. As a result, we performed the Introduce Parameter Object and divided the local variables into 3 distinct Python namedtuples. This helped clean up all of the function signatures and return values and make the code much more readable.
 
 
 # EdkRepo - The Multi-Repository Tool for EDK II
